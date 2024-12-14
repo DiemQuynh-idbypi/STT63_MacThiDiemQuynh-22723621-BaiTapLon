@@ -168,12 +168,13 @@
     </footer>
     <script>
         function saveUserData() {
-            const name = document.querySelector('input[name="name"]').value;
-            const phone = document.querySelector('input[name="phone_number"]').value;
-            const email = document.querySelector('input[name="email"]').value;
-            const password = document.querySelector('input[name="psw"]').value;
-            const confirmPassword = document.querySelector('input[name="psw-repeat"]').value;
-// Validate name (no numbers allowed)
+    const name = document.querySelector('input[name="name"]').value;
+    const phone = document.querySelector('input[name="phone_number"]').value;
+    const email = document.querySelector('input[name="email"]').value;
+    const password = document.querySelector('input[name="psw"]').value;
+    const confirmPassword = document.querySelector('input[name="psw-repeat"]').value;
+
+    // Validate name (no numbers allowed)
     const nameRegex = /^[^\d]*$/;
     if (!nameRegex.test(name)) {
         alert('Họ và tên không được chứa chữ số.');
@@ -194,17 +195,19 @@
         return;
     }
 
-            if (password !== confirmPassword) {
-                alert('Mật khẩu và mật khẩu nhập lại không khớp.');
-                return;
-            }
-        
-            // Lưu thông tin người dùng vào sessionStorage để lưu trữ tạm thời
-            sessionStorage.setItem('user', JSON.stringify({ name, phone, email, password }));
-        
-            // Chuyển đến trang đăng nhập
-            window.location.href = './sign_in.html';
-        }
+    // Validate passwords match
+    if (password !== confirmPassword) {
+        alert('Mật khẩu và mật khẩu nhập lại không khớp.');
+        return;
+    }
+
+    // Save user data to sessionStorage (temporary storage)
+    sessionStorage.setItem('user', JSON.stringify({ name, phone, email, password }));
+
+    // Redirect to sign-in page
+    window.location.href = './sign_in.html';
+}
+
     </script>
     <script src="./assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="./assets/js/header.js"></script>
