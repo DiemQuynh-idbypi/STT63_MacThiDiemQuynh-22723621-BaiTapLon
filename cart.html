@@ -80,6 +80,18 @@
             <div id="cart-items" class="row">
                 <!-- Các sản phẩm sẽ được hiển thị tại đây -->
             </div>
+             <!-- Thêm tùy chọn phương thức thanh toán -->
+    <div class="payment-options mt-3">
+        <h5>Chọn phương thức thanh toán:</h5>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="paymentMethod" id="bankTransfer" value="Thẻ ngân hàng">
+            <label class="form-check-label" for="bankTransfer">Thanh toán bằng thẻ ngân hàng</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="paymentMethod" id="cod" value="COD">
+            <label class="form-check-label" for="cod">Thanh toán khi nhận hàng (COD)</label>
+        </div>
+    </div>
             <button id="clear-cart" class="btn btn-danger mb-3" style="background-color:#ba0100;border-style: none;color: #ffffff"><b>Xóa giỏ hàng</b></button>
             <button id="payment" class="btn btn-danger mb-3" style="background-color: #c5c5c5;border-style: none;color: #000000;">
     <b>Thanh toán</b>
