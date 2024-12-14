@@ -173,7 +173,26 @@
             const email = document.querySelector('input[name="email"]').value;
             const password = document.querySelector('input[name="psw"]').value;
             const confirmPassword = document.querySelector('input[name="psw-repeat"]').value;
-        
+        // Validate name (no numbers allowed)
+    const nameRegex = /^[^\d]*$/;
+    if (!nameRegex.test(name)) {
+        alert('Họ và tên không được chứa chữ số.');
+        return;
+    }
+
+    // Validate phone number (10 digits only, no letters)
+    const phoneRegex = /^\d{10}$/;
+    if (!phoneRegex.test(phone)) {
+        alert('Số điện thoại phải là 10 chữ số và không chứa ký tự khác.');
+        return;
+    }
+
+    // Validate email format
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+    if (!emailRegex.test(email)) {
+        alert('Email phải theo định dạng xxx@gmail.com.');
+        return;
+    }
             if (password !== confirmPassword) {
                 alert('Mật khẩu và mật khẩu nhập lại không khớp.');
                 return;
