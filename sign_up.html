@@ -173,25 +173,25 @@
             const email = document.querySelector('input[name="email"]').value;
             const password = document.querySelector('input[name="psw"]').value;
             const confirmPassword = document.querySelector('input[name="psw-repeat"]').value;
-        // Validate name (no numbers allowed)
+// Validate name (no numbers allowed)
     const nameRegex = /^[^\d]*$/;
     if (!nameRegex.test(name)) {
-        alert('Họ và tên không được chứa chữ số.');
-        return;
+        showError(nameField, 'Họ và tên không được chứa chữ số.');
+        isValid = false;
     }
 
     // Validate phone number (10 digits only, no letters)
     const phoneRegex = /^\d{10}$/;
     if (!phoneRegex.test(phone)) {
-        alert('Số điện thoại phải là 10 chữ số và không chứa ký tự khác.');
-        return;
+        showError(phoneField, 'Số điện thoại phải là 10 chữ số và không chứa ký tự khác.');
+        isValid = false;
     }
 
     // Validate email format
     const emailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
     if (!emailRegex.test(email)) {
-        alert('Email phải theo định dạng xxx@gmail.com.');
-        return;
+        showError(emailField, 'Email phải theo định dạng xxx@gmail.com.');
+        isValid = false;
     }
             if (password !== confirmPassword) {
                 alert('Mật khẩu và mật khẩu nhập lại không khớp.');
@@ -204,6 +204,15 @@
             // Chuyển đến trang đăng nhập
             window.location.href = './sign_in.html';
         }
+        function showError(inputField, message) {
+    const error = document.createElement('div');
+    error.className = 'error-message';
+    error.style.color = 'red';
+    error.style.fontSize = '12px';
+    error.textContent = message;
+    inputField.parentElement.appendChild(error);
+}
+
     </script>
     <script src="./assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="./assets/js/header.js"></script>
