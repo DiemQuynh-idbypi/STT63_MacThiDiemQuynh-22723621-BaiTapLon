@@ -81,7 +81,9 @@
                 <!-- Các sản phẩm sẽ được hiển thị tại đây -->
             </div>
             <button id="clear-cart" class="btn btn-danger mb-3" style="background-color:#ba0100;border-style: none;color: #ffffff"><b>Xóa giỏ hàng</b></button>
-            <button id="payment" class="btn btn-danger mb-3" style="background-color: #c5c5c5;border-style: none;color: #000000;"><b>Thanh toán</b></button>
+            <button id="payment" class="btn btn-danger mb-3" style="background-color: #c5c5c5;border-style: none;color: #000000;">
+    <b>Thanh toán</b>
+</button>
         </div>
         <!-- Start: Footer-->
         <footer class="text-white bg-dark" style="height: 250px;background: url(&quot;assets/img/BG%20color.png&quot;), #343633">
@@ -197,6 +199,13 @@
             });
     
             displayCart();
+
+
+    document.getElementById('payment').addEventListener('click', function () {
+        alert('Thanh toán thành công!');
+        window.location.href = './home.html'; // Chuyển về trang chủ
+    });
+
         </script>
 </body>
 </html>
